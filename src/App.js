@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Navigation from './components/Navigation';
+import ScrollToTop from './components/ScrollToTop';
+import AdminPanel from './components/AdminPanel';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
+  const [showAdmin, setShowAdmin] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CustomCursor />
+      <Header showAdmin={showAdmin} setShowAdmin={setShowAdmin} />
+      <Navigation />
+      <Hero />
+      <Projects />
+      <Skills />
+      <Contact />
+      <Footer />
+      <ScrollToTop />
+      <AdminPanel isOpen={showAdmin} onClose={() => setShowAdmin(false)} />
     </div>
   );
 }
