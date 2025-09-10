@@ -64,18 +64,13 @@ const Hero = () => {
   }, []);
 
   return (
-    <section id="home" style={{ 
+    <section id="home" className="section" style={{ 
       textAlign: 'center', 
       color: 'white',
       position: 'relative',
       overflow: 'hidden',
       background: '#000000',
-      minHeight: '100vh',
-      height: '100vh',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: windowWidth <= 480 ? '20px 0' : '40px 0'
+      minHeight: '100vh'
     }}>
 
       <div className="floating-shapes">
@@ -141,25 +136,12 @@ const Hero = () => {
         ))}
       </div>
       
-      <div className="container" style={{ 
-        position: 'relative', 
-        zIndex: 3,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center'
-      }}>
+      <div className="container" style={{ position: 'relative', zIndex: 3 }}>
         <motion.div
           className={windowWidth <= 480 ? 'hero-mobile' : ''}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          style={{
-            width: '100%',
-            maxWidth: '1200px',
-            padding: windowWidth <= 480 ? '0 15px' : '0 20px'
-          }}
         >
           <motion.div
             className="sand-trigger"
@@ -168,14 +150,14 @@ const Hero = () => {
             whileHover={{ scale: 1.05, y: -2 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             style={{
-              marginBottom: windowWidth <= 480 ? '20px' : '30px',
-              padding: windowWidth <= 480 ? '12px 20px' : '15px 30px',
+              marginBottom: '30px',
+              padding: '15px 30px',
               background: 'rgba(255,255,255,0.05)',
               backdropFilter: 'blur(10px)',
               borderRadius: '50px',
               border: '1px solid rgba(255,255,255,0.1)',
               display: 'inline-block',
-              fontSize: windowWidth <= 480 ? '12px' : '14px',
+              fontSize: '14px',
               fontWeight: '500',
               letterSpacing: '1px',
               textTransform: 'uppercase',
@@ -201,11 +183,11 @@ const Hero = () => {
           
           <motion.h1 
             style={{ 
-              fontSize: windowWidth <= 480 ? 'clamp(1.8rem, 8vw, 2.5rem)' : windowWidth <= 768 ? 'clamp(2rem, 6vw, 3rem)' : 'clamp(2.5rem, 8vw, 4.5rem)',
-              marginBottom: windowWidth <= 480 ? '20px' : '25px',
+              fontSize: 'clamp(2.5rem, 8vw, 4.5rem)',
+              marginBottom: '25px',
               fontFamily: 'Poppins, sans-serif',
               fontWeight: '700',
-              lineHeight: windowWidth <= 480 ? '1.1' : '1.2',
+              lineHeight: '1.2',
               color: '#ffffff',
               position: 'relative'
             }}
@@ -239,11 +221,11 @@ const Hero = () => {
           
           <motion.div
             style={{
-              fontSize: windowWidth <= 480 ? 'clamp(0.9rem, 4vw, 1.1rem)' : 'clamp(1rem, 3vw, 1.4rem)',
-              marginBottom: windowWidth <= 480 ? '30px' : '40px',
-              maxWidth: windowWidth <= 480 ? '100%' : '700px',
-              margin: windowWidth <= 480 ? '0 0 30px' : '0 auto 40px',
-              lineHeight: windowWidth <= 480 ? '1.6' : '1.8',
+              fontSize: 'clamp(1rem, 3vw, 1.4rem)',
+              marginBottom: '40px',
+              maxWidth: windowWidth <= 480 ? '35%' : '700px',
+              margin: '0 auto 40px',
+              lineHeight: '1.8',
               opacity: '0.9',
               fontWeight: '400',
               padding: windowWidth <= 480 ? '0 10px' : '0'
@@ -308,6 +290,32 @@ const Hero = () => {
               🚀 View My Work
             </motion.a>
             <motion.a 
+              href="/Tanishq-Bagde-CV.pdf.pdf" 
+              download="Tanishq-Bagde-CV.pdf"
+              className="btn btn-secondary hero-btn sand-trigger" 
+              style={{
+                minWidth: windowWidth <= 480 ? '200px' : 'auto',
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: '-100%',
+                  width: '100%',
+                  height: '100%',
+                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)'
+                }}
+                whileHover={{ left: '100%' }}
+                transition={{ duration: 0.6 }}
+              />
+              📄 Download CV
+            </motion.a>
+            <motion.a 
               href="#contact" 
               className="btn btn-secondary hero-btn sand-trigger" 
               style={{
@@ -336,12 +344,12 @@ const Hero = () => {
           
           <motion.div
             style={{
-              marginTop: windowWidth <= 480 ? '30px' : windowWidth <= 768 ? '40px' : '60px',
+              marginTop: windowWidth <= 480 ? '40px' : '60px',
               width: '100%',
-              overflow: 'hidden',
+              overflow: 'visible',
               position: 'relative',
-              paddingTop: windowWidth <= 480 ? '15px' : '20px',
-              paddingBottom: windowWidth <= 480 ? '15px' : '20px'
+              paddingTop: '20px',
+              paddingBottom: '20px'
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -352,26 +360,23 @@ const Hero = () => {
                 display: 'flex',
                 gap: '30px',
                 alignItems: 'center',
-                whiteSpace: 'nowrap',
-                zIndex: 1,
-                paddingTop: '15px',
-                paddingBottom: '15px'
+                whiteSpace: 'nowrap'
               }}
               animate={{
                 x: [0, -1000]
               }}
-              transition={{
+              transition={{ 
                 duration: 20,
                 repeat: Infinity,
                 ease: 'linear'
               }}
             >
               {[
-                'React', 'JavaScript', 'HTML/CSS', 'Next.js', 'Node.js', 'Express.js', 
-                'Python', 'REST APIs', 'MsSQL', 'MongoDB', 'AWS', 'Docker', 'Git', 'VS Code'
+                'React', 'Node.js', 'MongoDB', 'Express', 'JavaScript', 'TypeScript', 
+                'Python', 'HTML5', 'CSS', 'Git', 'Docker', 'AWS', , 'MySQL' 
               ].concat([
-                'React', 'JavaScript', 'HTML/CSS', 'Next.js', 'Node.js', 'Express.js', 
-                'Python', 'REST APIs', 'MsSQL', 'MongoDB', 'AWS', 'Docker', 'Git', 'VS Code'
+                'React', 'Node.js', 'MongoDB', 'Express', 'JavaScript', 'TypeScript', 
+                'Python', 'HTML5', 'CSS', 'Git', 'Docker', 'AWS', 'MySQL'
               ]).map((skill, index) => (
                 <motion.div
                   key={index}
@@ -381,37 +386,25 @@ const Hero = () => {
                     backdropFilter: 'blur(10px)',
                     borderRadius: '25px',
                     border: '1px solid rgba(255,255,255,0.2)',
-                    fontSize: '13px',
+                    fontSize: '14px',
                     fontWeight: '500',
                     color: '#ffffff',
                     textAlign: 'center',
                     minWidth: 'fit-content',
                     cursor: 'pointer',
                     position: 'relative',
-                    overflow: 'hidden'
+                    overflow: 'hidden',
+                    zIndex: 10
                   }}
                   whileHover={{
-                    scale: 1.3,
-                    y: -15,
+                    scale: 1.1,
+                    y: -5,
                     backgroundColor: '#667eea',
-                    boxShadow: '0 15px 40px rgba(102, 126, 234, 0.6)',
-                    zIndex: 10,
-                    rotate: [0, -5, 5, 0]
+                    boxShadow: '0 10px 25px rgba(102, 126, 234, 0.4)',
+                    zIndex: 20
                   }}
-                  transition={{ duration: 0.4, type: 'spring', stiffness: 400 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <motion.div
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: '-100%',
-                      width: '100%',
-                      height: '100%',
-                      background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)'
-                    }}
-                    whileHover={{ left: '100%' }}
-                    transition={{ duration: 0.5 }}
-                  />
                   {skill}
                 </motion.div>
               ))}

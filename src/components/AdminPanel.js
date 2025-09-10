@@ -44,6 +44,16 @@ const AdminPanel = ({ isOpen, onClose }) => {
 
   const handleProjectSubmit = async (e) => {
     e.preventDefault();
+    
+    if (editingProject && !isAuthenticated) {
+      const enteredPassword = prompt('Enter admin password to update:');
+      if (enteredPassword !== 'T@nishq860') {
+        alert('Incorrect password!');
+        return;
+      }
+      setIsAuthenticated(true);
+    }
+    
     try {
       const projectData = {
         title: projectForm.title,
@@ -97,6 +107,15 @@ const AdminPanel = ({ isOpen, onClose }) => {
   };
 
   const handleEditProject = (project) => {
+    if (!isAuthenticated) {
+      const enteredPassword = prompt('Enter admin password to edit:');
+      if (enteredPassword !== 'T@nishq860') {
+        alert('Incorrect password!');
+        return;
+      }
+      setIsAuthenticated(true);
+    }
+    
     setEditingProject(project);
     setProjectForm({
       title: project.title,

@@ -5,11 +5,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const handleResumeDownload = () => {
-    // Create a dummy resume download - replace with actual resume URL
-    const resumeUrl = '/resume.pdf'; // Place your resume.pdf in public folder
+    const resumeUrl = '/Tanishq-Bagde-CV.pdf.pdf';
     const link = document.createElement('a');
     link.href = resumeUrl;
-    link.download = 'Tanishq_Bagde_Resume.pdf';
+    link.download = 'Tanishq-Bagde-CV.pdf';
     link.click();
   };
 

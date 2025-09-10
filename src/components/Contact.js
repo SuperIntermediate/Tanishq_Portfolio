@@ -81,11 +81,10 @@ const Contact = () => {
           gap: '50px'
         }}>
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: window.innerWidth <= 768 ? '1fr' : 'repeat(2, 1fr)',
+            display: 'flex',
             gap: '30px',
-            maxWidth: '800px',
-            margin: '0 auto'
+            justifyContent: 'center',
+            flexWrap: 'wrap'
           }}>
             {contactInfo.map((info, index) => (
               <motion.div
@@ -109,7 +108,8 @@ const Contact = () => {
                   overflow: 'hidden',
                   color: '#ffffff',
                   textAlign: 'center',
-                  minWidth: '280px'
+                  minWidth: '280px',
+                  flex: '1'
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 255, 0.1)';
@@ -165,7 +165,9 @@ const Contact = () => {
           <motion.div
             className="card contact-form-card"
             style={{ 
+              maxWidth: window.innerWidth <= 480 ? '95%' : window.innerWidth <= 768 ? '90%' : '1000px',
               width: '100%',
+              margin: '0 auto',
               position: 'relative',
               overflow: 'hidden',
               background: 'rgba(0, 0, 0, 0.3)',
@@ -239,7 +241,8 @@ const Contact = () => {
                     fontSize: '16px',
                     fontFamily: 'inherit',
                     transition: 'all 0.3s ease',
-                    background: '#fafafa'
+                    background: '#fafafa',
+                    boxSizing: 'border-box'
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = '#667eea';
@@ -263,7 +266,6 @@ const Contact = () => {
                   Email Address *
                 </label>
                 <input
-                color='white'
                   type="email"
                   name="email"
                   placeholder="HeyEmail@example.com"
@@ -278,7 +280,8 @@ const Contact = () => {
                     fontSize: '16px',
                     fontFamily: 'inherit',
                     transition: 'all 0.3s ease',
-                    background: '#fafafa'
+                    background: '#fafafa',
+                    boxSizing: 'border-box'
                   }}
                   onFocus={(e) => {
                     e.target.style.borderColor = '#667eea';
@@ -319,7 +322,8 @@ const Contact = () => {
                   resize: 'vertical',
                   minHeight: '120px',
                   transition: 'all 0.3s ease',
-                  background: '#fafafa'
+                  background: '#fafafa',
+                  boxSizing: 'border-box'
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = '#667eea';

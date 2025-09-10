@@ -56,13 +56,17 @@ const Projects = () => {
 
 
 
-  const convertGoogleDriveUrl = (url) => {
+  const convertImageUrl = (url) => {
+    if (!url) return null;
+    
+    // Google Drive - try direct access
     if (url.includes('drive.google.com')) {
       const fileId = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
       if (fileId) {
-        return `https://drive.google.com/thumbnail?id=${fileId[1]}&sz=w600-h400`;
+        return `https://lh3.googleusercontent.com/d/${fileId[1]}`;
       }
     }
+    
     return url;
   };
 
@@ -182,7 +186,7 @@ const Projects = () => {
                 backgroundColor: '#f0f0f0'
               }}>
                 <img 
-                  src={project.imageUrl ? convertGoogleDriveUrl(project.imageUrl) : `https://via.placeholder.com/600x400/667eea/ffffff?text=${encodeURIComponent(project.title)}`}
+                  src={project.imageUrl ? convertImageUrl(project.imageUrl) : `https://via.placeholder.com/600x400/667eea/ffffff?text=${encodeURIComponent(project.title)}`}
                   alt={project.title}
                   style={{
                     width: '100%',
