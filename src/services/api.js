@@ -12,13 +12,15 @@ const getAuthHeaders = () => {
 };
 
 export const projectsAPI = {
-  getAll: () => axios.get(`${API_URL}/projects`),
-  create: (data) => axios.post(`${API_URL}/projects`, data, { headers: getAuthHeaders() }),
-  update: (id, data) => axios.put(`${API_URL}/projects/${id}`, data, { headers: getAuthHeaders() }),
-  delete: (id) => axios.delete(`${API_URL}/projects/${id}`, { headers: getAuthHeaders() })
+  getAll: () => axios.get(`${API_URL}/api/projects`),
+  create: (data) => axios.post(`${API_URL}/api/projects`, data, { headers: getAuthHeaders() }),
+  update: (id, data) => axios.put(`${API_URL}/api/projects/${id}`, data, { headers: getAuthHeaders() }),
+  delete: (id) => axios.delete(`${API_URL}/api/projects/${id}`, { headers: getAuthHeaders() })
 };
 
+
 export const contactAPI = {
-  submit: (data) => axios.post(`${API_URL}/contact`, data),
-  getAll: () => axios.get(`${API_URL}/contact`, { headers: getAuthHeaders() })
+  submit: (data) => axios.post(`${API_URL}/api/contact`, data),
+  getAll: () => axios.get(`${API_URL}/api/contact`, { headers: getAuthHeaders() })
 };
+
