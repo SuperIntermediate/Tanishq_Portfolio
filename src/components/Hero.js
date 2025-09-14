@@ -291,7 +291,7 @@ const Hero = () => {
             </motion.a>
             <motion.button 
               onClick={() => {
-                const resumeUrl = '/resume.pdf';
+                const resumeUrl = '/Tanishq-Bagde.CV.pdf.pdf';
                 if (windowWidth <= 768) {
                   window.open(resumeUrl, '_blank');
                 } else {
