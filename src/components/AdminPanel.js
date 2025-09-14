@@ -76,7 +76,7 @@ const AdminPanel = ({ isOpen, onClose }) => {
         setEditingProject(null);
       } else {
         await projectsAPI.create(projectData);
-        alert('Project added successfully to database!');
+        alert('Project added successfully to Portfolio!');
       }
       
       setProjectForm({
@@ -89,7 +89,7 @@ const AdminPanel = ({ isOpen, onClose }) => {
       
     } catch (error) {
       console.error('Error saving project:', error);
-      let errorMessage = 'Error saving project to database.';
+      let errorMessage = 'Error saving project to Portfolio.';
       
       if (error.response) {
         // Server responded with error status
