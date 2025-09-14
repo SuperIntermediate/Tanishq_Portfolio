@@ -59,25 +59,14 @@ const Projects = () => {
   const convertImageUrl = (url) => {
     if (!url) return null;
     
-    // Direct image URLs (most reliable)
-    if (url.match(/\.(jpg|jpeg|png|gif|webp|svg)$/i)) {
-      return url;
-    }
-    
-    // Google Drive URLs
+    // Google Drive - try direct access
     if (url.includes('drive.google.com')) {
       const fileId = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
       if (fileId) {
-        return `https://drive.google.com/uc?export=view&id=${fileId[1]}`;
+        return `https://lh3.googleusercontent.com/d/${fileId[1]}`;
       }
     }
     
-    // Imgur URLs
-    if (url.includes('imgur.com') && !url.includes('.jpg') && !url.includes('.png')) {
-      return url + '.jpg';
-    }
-    
-    // Default: return original URL
     return url;
   };
 
