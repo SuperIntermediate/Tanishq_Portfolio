@@ -192,9 +192,11 @@ const Projects = () => {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
+                    objectPosition: 'center',
                     position: 'absolute',
                     top: 0,
-                    left: 0
+                    left: 0,
+                    borderRadius: windowWidth <= 480 ? '12px' : '15px'
                   }}
                   onError={(e) => {
                     console.log('Image failed to load:', e.target.src);
