@@ -5,7 +5,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const handleResumeDownload = () => {
-    const resumeUrl = '/Tanishq-Bagde-CV.pdf.pdf';
+    const resumeUrl = '/Tanishq-Bagde-CV.pdf';
     
     if (window.innerWidth <= 768) {
       // Mobile: Open in new tab
