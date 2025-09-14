@@ -45,8 +45,8 @@ const AdminPanel = ({ isOpen, onClose }) => {
   const handleProjectSubmit = async (e) => {
     e.preventDefault();
     
-    if (editingProject && !isAuthenticated) {
-      const enteredPassword = prompt('Enter admin password to update:');
+    if (!isAuthenticated) {
+      const enteredPassword = prompt(editingProject ? 'Enter admin password to update:' : 'Enter admin password to add project:');
       if (enteredPassword !== 'T@nishq860') {
         alert('Incorrect password!');
         return;
