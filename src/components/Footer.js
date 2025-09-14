@@ -5,11 +5,21 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const handleResumeDownload = () => {
-    const resumeUrl = '/Tanishq-Bagde-CV.pdf.pdf';
-    const link = document.createElement('a');
-    link.href = resumeUrl;
-    link.download = 'Tanishq-Bagde-CV.pdf';
-    link.click();
+    const resumeUrl = '/resume.pdf';
+    
+    if (window.innerWidth <= 768) {
+      // Mobile: Open in new tab
+      window.open(resumeUrl, '_blank');
+    } else {
+      // Desktop: Download directly
+      const link = document.createElement('a');
+      link.href = resumeUrl;
+      link.download = 'Tanishq_Bagde_Resume.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   };
 
   return (
