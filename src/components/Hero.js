@@ -289,14 +289,28 @@ const Hero = () => {
               />
               🚀 View My Work
             </motion.a>
-            <motion.a 
-              href="/Tanishq-Bagde-CV.pdf.pdf" 
-              download="Tanishq-Bagde-CV.pdf"
+            <motion.button 
+              onClick={() => {
+                const resumeUrl = '/resume.pdf';
+                if (windowWidth <= 768) {
+                  window.open(resumeUrl, '_blank');
+                } else {
+                  const link = document.createElement('a');
+                  link.href = resumeUrl;
+                  link.download = 'Tanishq_Bagde_Resume.pdf';
+                  link.target = '_blank';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }
+              }}
               className="btn btn-secondary hero-btn sand-trigger" 
               style={{
                 minWidth: windowWidth <= 480 ? '200px' : 'auto',
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                border: 'none',
+                cursor: 'pointer'
               }}
               whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
@@ -314,7 +328,7 @@ const Hero = () => {
                 transition={{ duration: 0.6 }}
               />
               📄 Download CV
-            </motion.a>
+            </motion.button>
             <motion.a 
               href="#contact" 
               className="btn btn-secondary hero-btn sand-trigger" 
